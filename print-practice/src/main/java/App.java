@@ -1,7 +1,7 @@
 public class App {
 
     public static void main(String[] args) {
-        
+
         Triangle triangle = new Triangle();
         System.out.println(triangle.printAsterisk());
         System.out.println(triangle.asteriskLine(8));
@@ -10,6 +10,8 @@ public class App {
 
         Diamond diamond = new Diamond();
         System.out.println(diamond.centered_triangle(3));
+        System.out.println(diamond.centered_diamond(3));
+        System.out.println(diamond.centered_diamond_name(3));
 
     }
 
