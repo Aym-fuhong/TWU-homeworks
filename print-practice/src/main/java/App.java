@@ -13,6 +13,9 @@ public class App {
         System.out.println(diamond.centered_diamond(3));
         System.out.println(diamond.centered_diamond_name(3));
 
+        FizzBuzz fizzBuzz = new FizzBuzz();
+        System.out.println(fizzBuzz.FizzBuzz());
+
     }
 
 }
