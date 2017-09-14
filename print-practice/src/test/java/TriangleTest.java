@@ -7,22 +7,22 @@ public class TriangleTest {
     private Triangle triangle = new Triangle();
 
     @Test
-    public void testPrintAsterisk() {
+    public void printAsterisk_test() {
         assertThat(triangle.printAsterisk(), is("*"));
     }
 
     @Test
-    public void testAsteriskLine() {
+    public void asteriskLine_test() {
         assertThat(triangle.asteriskLine(1), is("*"));
     }
 
     @Test
-    public void testAsteriskVertical() {
+    public void asteriskVertical_test() {
         assertThat(triangle.asteriskVertical(1), is("*\n"));
     }
 
     @Test
-    public void testRightTriangle() {
+    public void rightTriangle_test() {
         assertThat(triangle.rightTriangle(1), is("*\n"));
     }
 }
