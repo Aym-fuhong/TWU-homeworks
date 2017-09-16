@@ -13,7 +13,7 @@ public class TriangleTest {
 
     @Test
     public void asteriskLine_test_case_one() {
-        assertThat(triangle.asteriskLine(1), is("*"));
+        assertThat(triangle.asteriskLine(-1), is(""));
     }
 
     @Test
