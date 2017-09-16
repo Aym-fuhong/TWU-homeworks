@@ -1,8 +1,8 @@
 public class FizzBuzz {
 
-    public String FizzBuzz() {
+    public String FizzBuzz(int number) {
         String result = "";
-        for (int i = 1; i <= 100; i++) {
+        for (int i = 1; i <= number; i++) {
             String word = "";
             if (i % 3 == 0) {
                 result += "Fizz";

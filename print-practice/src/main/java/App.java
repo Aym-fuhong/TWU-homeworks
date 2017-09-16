@@ -11,10 +11,10 @@ public class App {
         Diamond diamond = new Diamond();
 //        System.out.println(diamond.centered_triangle(3));
 //        System.out.println(diamond.centered_diamond(2));
-        System.out.println(diamond.centered_diamond_name(3));
+//        System.out.println(diamond.centered_diamond_name(3));
 
-//        FizzBuzz fizzBuzz = new FizzBuzz();
-//        System.out.println(fizzBuzz.FizzBuzz());
+        FizzBuzz fizzBuzz = new FizzBuzz();
+        System.out.println(fizzBuzz.FizzBuzz(16));
 //
 //        Factor factor = new Factor();
 //        System.out.println(factor.generate(30));
