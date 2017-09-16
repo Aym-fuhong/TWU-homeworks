@@ -16,6 +16,8 @@ public class App {
         FizzBuzz fizzBuzz = new FizzBuzz();
         System.out.println(fizzBuzz.FizzBuzz());
 
+        Factor factor = new Factor();
+        System.out.println(factor.generate(30));
     }
 
 }
