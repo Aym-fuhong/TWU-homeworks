@@ -78,7 +78,6 @@ public class LibraryService implements LibraryInterface {
 
     @Override
     public void set_book_list() {
-        System.out.println("into 00000000000");
         List<Book> bookList = new ArrayList<>();
         bookList.add(new Book("代码整洁之道", "martin", "2017-9-15", true));
         bookList.add(new Book("重构到模式", "martin", "2017-9-15", true));
