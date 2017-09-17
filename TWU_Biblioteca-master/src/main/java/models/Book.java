@@ -4,34 +4,34 @@ public class Book {
     private String name;
     private String author;
     private String publicDate;
+    private boolean exist;
 
-    public Book(String name, String author, String publicDate) {
+    public void setExist(boolean exist) {
+        this.exist = exist;
+    }
+
+    public boolean isExist() {
+        return exist;
+    }
+
+    public Book(String name, String author, String publicDate, boolean exist) {
         this.name = name;
         this.author = author;
         this.publicDate = publicDate;
+        this.exist = exist;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getAuthor() {
         return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
     }
 
     public String getPublicDate() {
         return publicDate;
     }
 
-    public void setPublicDate(String publicDate) {
-        this.publicDate = publicDate;
-    }
+
 }
