@@ -35,4 +35,8 @@ public class IOFilter {
         return input.trim().matches("[1]");
     }
 
+    public boolean isNumber_three(String input) {
+        return input.trim().matches("[3]");
+    }
+
 }

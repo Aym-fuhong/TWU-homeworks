@@ -8,15 +8,24 @@ public class Constant {
             "q.Quit\n" +
             "Please chose your role(1~2/q):";
 
-    public static String mainMenu = "Welcome to Biblioteca:\n" +
+    public static String librarian_mainMenu = "Welcome to Biblioteca:\n" +
             "1.list books\n" +
             "2.list movies\n" +
             "q.Quit\n" +
             "Please enter your choose(1~2/q):";
 
+    public static String mainMenu = "Welcome to Biblioteca:\n" +
+            "1.list books\n" +
+            "2.list movies\n" +
+            "3.return book\n" +
+            "q.Quit\n" +
+            "Please enter your choose(1~3/q):";
+
     public static String bookList = "1.书一\n2.书二\n3.书三\n";
 
-    public static String choose = "Please enter the number your want to borrow:\n";
+    public static String choose_checkout = "Please enter the number your want to checkout:\n";
+
+    public static String choose_return = "Please enter the number your want to return:\n";
 
     public static String errorMessage = "The input is incorrect. Please enter it again";
 

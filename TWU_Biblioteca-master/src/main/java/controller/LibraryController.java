@@ -23,13 +23,16 @@ public class LibraryController {
         ioFilter.processExit(this, input);
         switch (this.currentStatus) {
             case custom_main_menu:
-                    result = Constant.mainMenu;
-                    this.setCurrentStatus(Status.custom_booklist);
+                result = Constant.mainMenu;
+                this.setCurrentStatus(Status.custom_booklist);
                 break;
             case custom_booklist:
                 if (ioFilter.isNumber_one(input)) {
-                    result = Constant.bookList + Constant.choose;
+                    result = Constant.bookList + Constant.choose_checkout;
                     this.setCurrentStatus(Status.checkout_book);
+                } else if (ioFilter.isNumber_three(input)) {
+                    result = Constant.choose_return;
+                    this.setCurrentStatus(Status.return_book);
                 } else {
                     result = Constant.errorMessage;
                 }
@@ -42,12 +45,20 @@ public class LibraryController {
                     result = Constant.checkoutErrorMessage;
                 }
                 break;
+            case return_book:
+                if (ioFilter.isNumber(input)) {
+                    result = Constant.returnSuccessMessage + Constant.mainMenu;
+                    this.setCurrentStatus(Status.custom_booklist);
+                } else {
+                    result = Constant.returnErrorMessage;
+                }
+                break;
             case librarian_main_menu:
-                result = Constant.mainMenu;
+                result = Constant.librarian_mainMenu;
                 this.setCurrentStatus(Status.librarian_booklist);
                 break;
             case librarian_booklist:
-                if (ioFilter.isNumber_one(input)){
+                if (ioFilter.isNumber_one(input)) {
                     result = Constant.bookList + Constant.prompt;
                     this.setCurrentStatus(Status.custom_main_menu);
                 } else {
