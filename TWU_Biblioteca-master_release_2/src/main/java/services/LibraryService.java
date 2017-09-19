@@ -4,6 +4,7 @@ import interfaces.LibraryInterface;
 import models.Book;
 import models.Library;
 import models.Movie;
+import models.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +16,7 @@ public class LibraryService implements LibraryInterface {
     public LibraryService() {
         this.set_book_list();
         this.set_movie_list();
+        this.set_user_list();
     }
 
     @Override
@@ -22,9 +24,9 @@ public class LibraryService implements LibraryInterface {
         int inputValue = Integer.parseInt(input);
         List<Book> bookList = library.getBookList();
         for (int i = 0; i < bookList.size(); i++) {
-           if ( inputValue == i + 1){
-               bookList.get(i).setExist(false);
-           }
+            if (inputValue == bookList.get(i).getId()) {
+                bookList.get(i).setExist(false);
+            }
         }
     }
 
@@ -33,7 +35,7 @@ public class LibraryService implements LibraryInterface {
         int inputValue = Integer.parseInt(input);
         List<Movie> movieList = library.getMovieList();
         for (int i = 0; i < movieList.size(); i++) {
-            if ( inputValue ==movieList.get(i).getId()){
+            if (inputValue == movieList.get(i).getId()) {
                 movieList.get(i).setExist(false);
             }
         }
@@ -44,8 +46,19 @@ public class LibraryService implements LibraryInterface {
         int inputValue = Integer.parseInt(input);
         List<Book> bookList = library.getBookList();
         for (int i = 0; i < bookList.size(); i++) {
-            if ( inputValue == i + 1){
+            if (inputValue == bookList.get(i).getId()) {
                 bookList.get(i).setExist(true);
+            }
+        }
+    }
+
+    @Override
+    public void return_movie(String input) {
+        int inputValue = Integer.parseInt(input);
+        List<Movie> movieList = library.getMovieList();
+        for (int i = 0; i < movieList.size(); i++) {
+            if (inputValue == movieList.get(i).getId()) {
+                movieList.get(i).setExist(true);
             }
         }
     }
@@ -56,7 +69,20 @@ public class LibraryService implements LibraryInterface {
         int inputValue = Integer.parseInt(input);
         List<Book> bookList = library.getBookList();
         for (int i = 0; i < bookList.size(); i++) {
-            if ( inputValue == i + 1 && bookList.get(i).isExist()){
+            if (inputValue == bookList.get(i).getId() && bookList.get(i).isExist()) {
+                isExist = true;
+            }
+        }
+        return isExist;
+    }
+
+    @Override
+    public boolean get_movie_is_exist(String input) {
+        boolean isExist = false;
+        int inputValue = Integer.parseInt(input);
+        List<Movie> movieList = library.getMovieList();
+        for (int i = 0; i < movieList.size(); i++) {
+            if (inputValue == movieList.get(i).getId() && movieList.get(i).isExist()) {
                 isExist = true;
             }
         }
@@ -120,9 +146,9 @@ public class LibraryService implements LibraryInterface {
     @Override
     public void set_book_list() {
         List<Book> bookList = new ArrayList<>();
-        bookList.add(new Book("代码整洁之道", "martin", "2017-9-15", true));
-        bookList.add(new Book("重构到模式", "martin", "2017-9-15", true));
-        bookList.add(new Book("程序员的思维修养", "martin", "2017-9-15", true));
+        bookList.add(new Book(1, "代码整洁之道", "martin", "2017-9-15", true));
+        bookList.add(new Book(2, "重构到模式", "martin", "2017-9-15", true));
+        bookList.add(new Book(3, "程序员的思维修养", "martin", "2017-9-15", true));
         library.setBookList(bookList);
     }
 
@@ -136,26 +162,12 @@ public class LibraryService implements LibraryInterface {
     }
 
     @Override
-    public boolean get_movie_is_exist(String input) {
-        boolean isExist = false;
-        int inputValue = Integer.parseInt(input);
-        List<Movie> movieList = library.getMovieList();
-        for (int i = 0; i < movieList.size(); i++) {
-            if ( inputValue ==  movieList.get(i).getId() && movieList.get(i).isExist()){
-                isExist = true;
-            }
-        }
-        return isExist;
+    public void set_user_list() {
+        List<User> userList = new ArrayList<>();
+        userList.add(new User(1, "jerry", "123", "11111111", "custom"));
+        userList.add(new User(2, "tom", "123", "11111111", "custom"));
+        userList.add(new User(3, "admin", "admin", "12345678", "admin"));
+        library.setUserList(userList);
     }
 
-    @Override
-    public void return_movie(String input) {
-        int inputValue = Integer.parseInt(input);
-        List<Movie> movieList = library.getMovieList();
-        for (int i = 0; i < movieList.size(); i++) {
-            if ( inputValue == movieList.get(i).getId()){
-                movieList.get(i).setExist(true);
-            }
-        }
-    }
 }

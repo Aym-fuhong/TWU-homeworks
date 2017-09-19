@@ -20,6 +20,7 @@ public class Constant {
             "2.list movies\n" +
             "3.return book\n" +
             "4.return movie\n" +
+            "5.self information\n" +
             "q.Quit\n" +
             "Please enter your choose(1~3/q):";
 

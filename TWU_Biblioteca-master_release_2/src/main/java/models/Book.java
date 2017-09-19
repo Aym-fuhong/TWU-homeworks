@@ -1,6 +1,7 @@
 package models;
 
 public class Book {
+    private int id;
     private String name;
     private String author;
     private String publicDate;
@@ -14,11 +15,16 @@ public class Book {
         return exist;
     }
 
-    public Book(String name, String author, String publicDate, boolean exist) {
+    public Book(int id, String name, String author, String publicDate, boolean exist) {
+        this.id = id;
         this.name = name;
         this.author = author;
         this.publicDate = publicDate;
         this.exist = exist;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getName() {

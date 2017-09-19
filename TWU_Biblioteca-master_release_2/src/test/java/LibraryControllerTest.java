@@ -35,7 +35,7 @@ public class LibraryControllerTest {
 
     @Test
     public void app_run_case_3() throws Exception {
-        libraryController.setCurrentStatus(Status.custom_booklist);
+        libraryController.setCurrentStatus(Status.custom_choose);
         String input = "1";
         String expect = "1.\n" +
                 "  书名: 代码整洁之道\n" +
@@ -55,7 +55,7 @@ public class LibraryControllerTest {
 
     @Test
     public void app_run_case_4() throws Exception {
-        libraryController.setCurrentStatus(Status.custom_booklist);
+        libraryController.setCurrentStatus(Status.custom_choose);
         String input = "4";
         String expect = "The input is incorrect. Please enter it again";
         this.should_return_assertThat_when_input_test_data(input, expect);
@@ -63,7 +63,7 @@ public class LibraryControllerTest {
 
     @Test
     public void app_run_case_5() throws Exception {
-        libraryController.setCurrentStatus(Status.custom_booklist);
+        libraryController.setCurrentStatus(Status.custom_choose);
         String input = "3";
         String expect = "Please enter the number your want to return:\n";
         this.should_return_assertThat_when_input_test_data(input, expect);

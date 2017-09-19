@@ -7,6 +7,8 @@ public class Library {
 
     private List<Book> bookList = new ArrayList<>();
     private List<Movie> movieList = new ArrayList<>();
+    private List<User> userList = new ArrayList<>();
+    private User currentUser = new User();
 
     public List<Movie> getMovieList() {
         return movieList;
@@ -24,4 +26,19 @@ public class Library {
         this.bookList = bookList;
     }
 
+    public List<User> getUserList() {
+        return userList;
+    }
+
+    public void setUserList(List<User> userList) {
+        this.userList = userList;
+    }
+
+    public User getCurrentUser() {
+        return currentUser;
+    }
+
+    public void setCurrentUser(User currentUser) {
+        this.currentUser = currentUser;
+    }
 }

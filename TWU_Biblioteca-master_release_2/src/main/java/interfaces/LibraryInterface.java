@@ -9,6 +9,7 @@ public interface LibraryInterface {
     StringBuffer get_book_list();
     StringBuffer get_movie_list();
     void set_book_list();
+    void set_user_list();
     void set_movie_list();
     boolean get_movie_is_exist(String input);
 

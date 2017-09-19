@@ -5,7 +5,7 @@ import controller.LibraryController;
 
 public class IOFilter {
 
-    public void setStatus(LibraryController libraryController, String input) {
+    public static void setStatus(LibraryController libraryController, String input) {
         if (Status.wait_input.equals(libraryController.getCurrentStatus()) && isNumber(input)) {
             switch (input) {
                 case "1":
@@ -21,27 +21,27 @@ public class IOFilter {
         }
     }
 
-    public void processExit(LibraryController libraryController, String input) {
+    public static void processExit(LibraryController libraryController, String input) {
         if (input.trim().equals("q")){
             libraryController.setCurrentStatus(Status.exit);
         }
     }
 
-    public boolean isNumber(String input) {
+    public static boolean isNumber(String input) {
         return input.trim().matches("[123]");
     }
 
-    public boolean isNumber_one(String input) {
+    public static boolean isNumber_one(String input) {
         return input.trim().matches("[1]");
     }
 
-    public boolean isNumber_two(String input) {
+    public static boolean isNumber_two(String input) {
         return input.trim().matches("[2]");
     }
 
-    public boolean isNumber_three(String input) {
+    public static boolean isNumber_three(String input) {
         return input.trim().matches("[3]");
     }
 
-    public boolean isNumber_four(String input) { return input.trim().matches("[4]"); }
+    public static boolean isNumber_four(String input) { return input.trim().matches("[4]"); }
 }
