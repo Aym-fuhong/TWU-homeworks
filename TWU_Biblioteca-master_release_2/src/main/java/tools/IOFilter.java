@@ -35,8 +35,13 @@ public class IOFilter {
         return input.trim().matches("[1]");
     }
 
+    public boolean isNumber_two(String input) {
+        return input.trim().matches("[2]");
+    }
+
     public boolean isNumber_three(String input) {
         return input.trim().matches("[3]");
     }
 
+    public boolean isNumber_four(String input) { return input.trim().matches("[4]"); }
 }

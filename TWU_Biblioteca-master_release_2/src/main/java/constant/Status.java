@@ -5,8 +5,10 @@ public enum Status {
     custom_main_menu,
     custom_booklist,
     librarian_main_menu,
-    librarian_booklist,
+    librarian_choose,
     checkout_book,
+    checkout_movie,
     return_book,
+    return_movie,
     exit
 }

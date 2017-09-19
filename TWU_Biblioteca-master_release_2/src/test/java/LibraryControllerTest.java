@@ -133,7 +133,7 @@ public class LibraryControllerTest {
 
     @Test
     public void app_run_case_12() throws Exception {
-        libraryController.setCurrentStatus(Status.librarian_booklist);
+        libraryController.setCurrentStatus(Status.librarian_choose);
         String input = "6";
         String expect = "The input is incorrect. Please enter it again";
         this.should_return_assertThat_when_input_test_data(input, expect);
@@ -141,7 +141,7 @@ public class LibraryControllerTest {
 
     @Test
     public void app_run_case_13() throws Exception {
-        libraryController.setCurrentStatus(Status.librarian_booklist);
+        libraryController.setCurrentStatus(Status.librarian_choose);
         String input = "1";
         String expect = "1.\n" +
                 "  书名: 代码整洁之道\n" +

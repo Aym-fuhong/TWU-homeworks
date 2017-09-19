@@ -38,9 +38,21 @@ public class LibraryController {
                         this.setCurrentStatus(Status.custom_main_menu);
                     }
 
+                } else if (ioFilter.isNumber_two(input)) {
+                    if (libraryInterface.get_movie_list().length() != 0) {
+                        result = libraryInterface.get_movie_list() + Constant.choose_checkout;
+                        this.setCurrentStatus(Status.checkout_movie);
+                    } else {
+                        result = Constant.vacant + Constant.prompt;
+                        this.setCurrentStatus(Status.custom_main_menu);
+                    }
+
                 } else if (ioFilter.isNumber_three(input)) {
                     result = Constant.choose_return;
                     this.setCurrentStatus(Status.return_book);
+                } else if (ioFilter.isNumber_four(input)) {
+                    result = Constant.choose_return;
+                    this.setCurrentStatus(Status.return_movie);
                 } else {
                     result = Constant.errorMessage;
                 }
@@ -48,17 +60,26 @@ public class LibraryController {
             case checkout_book:
                 if (ioFilter.isNumber(input)) {
                     libraryInterface.checkout_book(input);
-                    result = Constant.checkoutSuccessMessage + Constant.role;
+                    result = Constant.checkoutBookSuccessMessage + Constant.role;
                     this.setCurrentStatus(Status.wait_input);
                 } else {
-                    result = Constant.checkoutErrorMessage;
+                    result = Constant.checkoutBookErrorMessage;
+                }
+                break;
+            case checkout_movie:
+                if (ioFilter.isNumber(input)) {
+                    libraryInterface.checkout_movie(input);
+                    result = Constant.checkoutMovieSuccessMessage + Constant.role;
+                    this.setCurrentStatus(Status.wait_input);
+                } else {
+                    result = Constant.checkoutMovieErrorMessage;
                 }
                 break;
             case return_book:
                 if (ioFilter.isNumber(input)) {
-                    if(!libraryInterface.get_book_is_exist(input)) {
+                    if (!libraryInterface.get_book_is_exist(input)) {
                         libraryInterface.return_book(input);
-                        result = Constant.returnSuccessMessage + Constant.role;
+                        result = Constant.returnBookSuccessMessage + Constant.role;
                         this.setCurrentStatus(Status.wait_input);
                     } else {
                         result = Constant.exist_book + Constant.prompt;
@@ -66,14 +87,29 @@ public class LibraryController {
                     }
 
                 } else {
-                    result = Constant.returnErrorMessage;
+                    result = Constant.returnBookErrorMessage;
+                }
+                break;
+            case return_movie:
+                if (ioFilter.isNumber(input)) {
+                    if (!libraryInterface.get_movie_is_exist(input)) {
+                        libraryInterface.return_movie(input);
+                        result = Constant.returnMovieSuccessMessage + Constant.role;
+                        this.setCurrentStatus(Status.wait_input);
+                    } else {
+                        result = Constant.exist_movie + Constant.prompt;
+                        this.setCurrentStatus(Status.custom_main_menu);
+                    }
+
+                } else {
+                    result = Constant.returnMovieErrorMessage;
                 }
                 break;
             case librarian_main_menu:
                 result = Constant.librarian_mainMenu;
-                this.setCurrentStatus(Status.librarian_booklist);
+                this.setCurrentStatus(Status.librarian_choose);
                 break;
-            case librarian_booklist:
+            case librarian_choose:
                 if (ioFilter.isNumber_one(input)) {
                     if (libraryInterface.get_book_list().length() != 0) {
                         result = libraryInterface.get_book_list() + Constant.prompt;
@@ -81,6 +117,14 @@ public class LibraryController {
                     } else {
                         result = Constant.vacant + Constant.prompt;
                         this.setCurrentStatus(Status.custom_main_menu);
+                    }
+                } else if (ioFilter.isNumber_two(input)) {
+                    if (libraryInterface.get_movie_list().length() != 0) {
+                        result = libraryInterface.get_movie_list() + Constant.prompt;
+                        this.setCurrentStatus(Status.librarian_main_menu);
+                    } else {
+                        result = Constant.vacant + Constant.prompt;
+                        this.setCurrentStatus(Status.librarian_main_menu);
                     }
                 } else {
                     result = Constant.errorMessage;
