@@ -3,7 +3,6 @@ public class FizzBuzz {
     public String FizzBuzz(int number) {
         String result = "";
         for (int i = 1; i <= number; i++) {
-            String word = "";
             if (i % 3 == 0) {
                 result += "Fizz";
             }
@@ -13,7 +12,7 @@ public class FizzBuzz {
             if (i % 3 != 0 && i % 5 != 0) {
                 result += i;
             }
-            result += word + "\n";
+            result += "\n";
         }
         return result;
     }
