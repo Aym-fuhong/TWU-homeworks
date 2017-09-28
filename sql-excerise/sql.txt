@@ -1,0 +1,53 @@
+Create table users {
+userId  int NOT NULL,
+userName varchar(255) NOT NULL,
+Password varChar(255) NOT NULL,
+Phone varChar(255) NOT NULL,
+Type varChar(255) NOT NULL,
+PRIMARY KEY (userId)
+}
+
+Create table books {
+bookId int NOT NULL,
+bookName varChar(255) NOT NULL,
+Author varChar(255) NOT NULL,
+publicDate varChar(255) NOT NULL,
+PRIMARY KEY (bookId)
+}
+
+Create table movies {
+movieId int NOT NULL,
+movieName varChar(255) NOT NULL,
+Director varChar(255) NOT NULL,
+rating varChar(255) NOT NULL,
+PRIMARY KEY (movieId)
+}
+
+Create table checkout {
+id int,
+userId int,
+bookId int,
+MovieId int,
+PRIMARY KEY (id),
+FOREIGN KEY (userId) REFERENCES users(userId),
+FOREIGN KEY (bookId) REFERENCES books(bookId),
+FOREIGN KEY (movieId) REFERENCES movies(movieId),
+}
+
+1. Who checked out the book 'The Hobbit’?
+Slect userName from checkout where bookId = (select bookId from books where bookName = “The Hobbit”);
+
+2. How many people have not checked out anything?
+Select count(*) from users where userId not in (select DISTINCT userId from checkout);
+ 
+3. What books and movies aren't checked out?
+Select bookName from books where bookId not in (select bookId from checkout group by bookId);
+Select movieName from movies where movieId not in (select movieId from checkout group by movieId);
+
+4. Add the book 'The Pragmatic Programmer', and add yourself as a member. Check out 'The Pragmatic Programmer'. Use your query from question 1 to verify that you have checked it out. Also, provide the SQL used to update the database.
+Select userId from users where userName = “Aym”;
+Select bookId from books where bookName = “The Pragmatic Programmer”;
+Insert into checkout (userId, movieId) values (“Aym”, “The Pragmatic Programmer”);
+
+5. Who has checked out more that 1 item? 
+select userName from users where userId in (select userId from checkout group by userId having count(*) > 1);
